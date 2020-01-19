@@ -1,0 +1,32 @@
+{
+  "name": "dear-jackie-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noahfranco/dear-jackie-backend.git"
+  },
+  "keywords": [],
+  "author": "Noah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noahfranco/dear-jackie-backend/issues"
+  },
+  "homepage": "https://github.com/noahfranco/dear-jackie-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "knex": "^0.20.8",
+    "pg": "^7.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
