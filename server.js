@@ -5,8 +5,14 @@ const server = express()
 const cors = require("cors"); 
 const helmet = require("helmet"); 
 
+const mapMarkerRouter = require("./api/MapMarker.js"); 
+
+
 server.use(cors());
 server.use(helmet());
+server.use(express.json())
+
+server.use("/api/event", mapMarkerRouter); 
 
 
 // test server 

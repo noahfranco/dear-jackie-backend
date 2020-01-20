@@ -14,5 +14,5 @@ function findMarker() {
 // add new markers slash events 
 
 function addMarker(events) {
-    const add = db("marker").insert(events, "longitude", "latitude", "description", "date", "title")
+    const add = db("marker").insert(events, "id", "longitude", "latitude", "description", "date", "title")
 }
