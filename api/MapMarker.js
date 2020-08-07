@@ -2,6 +2,7 @@ const router = require("express").Router();
 const Marker = require("../models/MapMarkerModels.js");
 
 // To add a new marker to the map and event
+// http://localhost:5000/api/event/marker
 router.post("/marker", (req, res) => {
     let body = req.body
 
@@ -13,6 +14,7 @@ router.post("/marker", (req, res) => {
     }
 });
 
+// http://localhost:5000/api/event/getMarker
 router.get("/getMarker", (req, res) => {
     let body = req.body
     let id = req.params
