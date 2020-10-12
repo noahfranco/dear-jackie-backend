@@ -1,18 +1,37 @@
-const db = require("../database/development/dbconfig.js"); 
+const db = require("../database/development/dbconfig.js");
 
 module.exports = {
-    addMarker, 
-    findMarker
+  addMarker,
+  findMarker,
+  find,
+};
+
+function find() {
+  return db("our-storie");
 }
 
 // find new markers slash events
 
 function findMarker() {
-    return db("marker")
+  return db("our-storie").where(
+    "title",
+    "date",
+    "description",
+    "longitude",
+    "latitude"
+  );
 }
 
-// add new markers slash events 
+// add new markers slash events
 
 function addMarker(events) {
-    const add = db("marker").insert(events, "id", "longitude", "latitude", "description", "date", "title")
+  return db("our-storie").insert(
+    events,
+    "id",
+    "longitude",
+    "latitude",
+    "description",
+    "date",
+    "title"
+  );
 }

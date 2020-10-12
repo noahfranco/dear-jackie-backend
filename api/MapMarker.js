@@ -1,31 +1,27 @@
-const router = require("express").Router(); 
+const router = require("express").Router();
 const Marker = require("../models/MapMarkerModels.js");
 
-// To add a new marker to the map and event
 // http://localhost:5000/api/event/marker
-router.post("/marker", (req, res) => {
-    let body = req.body
-
-    if(body) {
-      Marker.addMarker(body)
-      res.status(200).json({ message: "data posted successfully" })
-    } else {
-        res.status(500).json({ error: "Internal server error" })
-    }
+router.get("/getMarker", async (req, res) => {
+  try {
+    const game = await Marker.find();
+    res.status(200).json(game);
+  } catch (error) {
+    res.status(500).json({ error: "Something went wrong" });
+  }
 });
 
 // http://localhost:5000/api/event/getMarker
-router.get("/getMarker", (req, res) => {
-    let body = req.body
-    let id = req.params
+router.post("/marker", async (req, res) => {
+  const newGame = req.body;
+  console.log(newGame);
 
-    if(body && id) {
-        Marker.findMarker()
-        res.status(200).json({ message: "data received successfully" })
-    } else {
-        res.status(500).json({ error: "Internal server error" })
-    }
-})
+  try {
+    const game = await Marker.addMarker(newGame);
+    res.status(201).json(game);
+  } catch (err) {
+    res.status(500).json({ err: "Error in adding user" });
+  }
+});
 
-
-module.exports = router; 
+module.exports = router;
