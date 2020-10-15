@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Marker = require("../models/MapMarkerModels.js");
 
+// to get back the memories that were posted and view them
 // http://localhost:5000/api/event/marker
 router.get("/getMarker", async (req, res) => {
   try {
@@ -11,6 +12,7 @@ router.get("/getMarker", async (req, res) => {
   }
 });
 
+// to post memories 
 // http://localhost:5000/api/event/getMarker
 router.post("/marker", async (req, res) => {
   const newGame = req.body;
